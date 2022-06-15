@@ -3,12 +3,14 @@ const rect = require("./rectangle");
 function solveRect(l, w) {
   console.log(`${l} hihihihi, ${w}`);
 
-  if (l <= 0 || w <= 0) {
-    console.log(`must be higher than 0 ${w}, ${l}`);
-  } else {
-    console.log(`first hi ${rect.area(l, w)}`);
-    console.log(rect.perimeter(l, w));
-  }
+  rect(l, w, (err, rectangle) => {
+    if (err) {
+      console.log(err.message);
+    } else {
+      console.log(`Hi, ${l}, ${w}, ${rectangle.perimeter()}`);
+      console.log(`bye ${rectangle.area()}`);
+    }
+  });
 }
 
 solveRect(3, 4);
